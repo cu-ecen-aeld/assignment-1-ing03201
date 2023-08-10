@@ -47,6 +47,8 @@ then
 	else
 		exit 1
 	fi
+else
+	mkdir -p "$WRITEDIR"
 fi
 #echo "Removing the old writer utility and compiling as a native application"
 #make clean
@@ -60,7 +62,7 @@ done
 OUTPUTSTRING=$(./finder.sh "$WRITEDIR" "$WRITESTR")
 
 # remove temporary directories
-rm -rf /tmp/aeld-data
+#rm -rf $WRITEDIR
 
 set +e
 echo ${OUTPUTSTRING} | grep "${MATCHSTR}"
