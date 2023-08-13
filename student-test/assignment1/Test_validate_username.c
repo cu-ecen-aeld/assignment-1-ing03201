@@ -20,12 +20,5 @@ void test_validate_my_username()
      */
     const char* hard_coded_user_name = my_username();
     char* conf_user_name = malloc_username_from_conf_file();
-    if( strcmp(hard_coded_user_name, conf_user_name) == 0) {
-	    this_function_returns_true();
-	    TEST_ASSERT_TRUE_MESSAGE(this_function_returns_true(), hard_coded_user_name);
-    }else{ 
-	    this_function_returns_false();
-	    TEST_ASSERT_TRUE_MESSAGE(this_function_returns_false(),"not equal");
-    }
-    //TEST_ASSERT_TRUE_MESSAGE(false,"AESD students, please fix me!");
+    TEST_ASSERT_EQUAL_STRING_MESSAGE(hard_coded_user_name, conf_user_name, "PASS");
 }
